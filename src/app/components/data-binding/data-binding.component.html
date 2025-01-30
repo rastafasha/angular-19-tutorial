@@ -1,0 +1,57 @@
+<div class="row p-3">
+    <h4>Input</h4>
+    <app-progress-bar [progressValue]="80"></app-progress-bar>
+</div>
+<div class="row">
+    <h4>Output</h4>
+    <div class="col-12 text-center p-3">
+        <app-tabs [tabList]="customerTabs" ></app-tabs>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            1.interpolacion
+            <p>firstName: {{firstName}} </p>
+            <div>
+                {{rollNo}}
+                <span>{{isActive}}</span>
+            </div>
+        </div>
+        <div class="col-6">
+            <input type="text" [value]="firstName" id="">
+            <br>
+            <input type="text" [placeholder]="myPlaceholder" id="">
+            <br>
+            <div [class]="divClassName" style="height: 100px; width: 100px;"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <button class="btn btn-success"(click)="showWelcomeMessagge()">
+                Show Welcome text
+            </button>
+        </div>
+        <div class="col-3">
+            <select (change)="onCityChange()">
+                <option value="Caracas">Caracas</option>
+                <option value="Miami">Miami</option>
+                <option value="New York">New York</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <input type="text" [(ngModel)]="firstName" id="">
+        </div>
+        <div class="col-3">
+            <select [(ngModel)]="selectedCity">
+                <option value="Caracas">Caracas</option>
+                <option value="Miami">Miami</option>
+                <option value="New York">New York</option>
+            </select>
+            -{{selectedCity}}
+        </div>
+    </div>
+    
+</div>

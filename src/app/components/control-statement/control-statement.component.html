@@ -1,0 +1,107 @@
+<div class="row p-3">
+  <app-progress-bar [progressValue]="30"></app-progress-bar>
+</div>
+<div class="row">
+  <h4>Output</h4>
+  <div class="col-12 p-3">
+    <app-tabs [tabList]="['CarList', 'CarDetails']" (onTableClicked)="onTabChange($event)"></app-tabs>
+    -{{currentTab}}
+  </div>
+</div>
+<div class="row">
+  <div class="col-3">
+    @if(divVisible == true){
+    <div class="bg-success pt-3">Div 1</div>
+
+    }
+  </div>
+  <div class="col-3">
+    @if(isChecked ==true){
+    <div class="bg-primary pt-3">checkbox is checked</div>
+
+    }@else{
+    <div class="bg-danger pt-3">checkbox is unchecked</div>
+
+    }
+  </div>
+  <div class="col-3">
+    @if(dayName == 'mon'){
+    <span>Monday</span>
+    }@else if (dayName == 'tue'){
+    <span>Tuesday</span>
+    }@else if (dayName == 'wed'){
+    <span>Wednesday</span>
+    }@else if (dayName == 'thu'){
+    <span>Thursday</span>
+    }@else if (dayName == 'fri'){
+    <span>Friday</span>
+    }@else if (dayName == 'sat'){
+    <span>Saturday</span>
+    }@else if (dayName == 'sun'){
+    <span>Sunday</span>
+    }@else {
+        <span>Propor next day</span>
+    }
+  </div>
+</div>
+<div class="row pt-4">
+  <div class="col-3">
+    <button type="button" class="btn btn-success" (click)="hideShowDiv(true)">
+      Show
+    </button>
+    <button type="button" class="btn btn-danger" (click)="hideShowDiv(false)">
+      Hide
+    </button>
+  </div>
+  <div class="col-3">
+    <input type="checkbox" [(ngModel)]="isChecked" />
+  </div>
+  <div class="col-3">
+    <input
+      type="text"
+      [(ngModel)]="dayName"
+      maxlength="3"
+      placeholder="Enter a week day"
+    />
+  </div>
+</div>
+<div class="row">
+    <div class="col-3">
+        <select >
+            @for(item of cityList;track $index){
+                <option  >{{item}}</option>
+            }
+        </select>
+    </div>
+    <div class="col-">
+        @for(city of cityList;track $index){
+            <button type="button" class="btn btn-success">{{city}}</button>
+        }
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-5">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr >
+                    <th>Sr No</th>
+                    <th>Name</th>
+                    <th>City</th>
+                    <th>Phone</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of employeeArray; track $index){
+                    <tr >
+                        <td>{{$index+1}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.city}}</td>
+                        <td>{{item.contact}}</td>
+                    </tr>
+                }
+                
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+<div class="row p-3">
+    <app-progress-bar [progressValue]="50"></app-progress-bar>
+</div>
+<div class="container">
+    
+    
+    <div class="row">
+        <div class="col-3">
+            <ul>
+                <li *ngFor="let city of cityList">{{city}}</li>
+            </ul>
+        </div>
+        <div class="col-3">
+            <button class="btn btn-success" type="button"
+            *ngFor="let cityName of cityList">
+            {{cityName}}
+        </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-3">
+            <select >
+                <option *ngFor="let emp of employeeArray" [value]="emp.id">
+                    {{emp.name}} - {{emp.city}}
+                </option>
+            </select>
+        </div>
+        <div class="col-5">
+            <table class="table table-bordered ">
+                <thead>
+                    <tr >
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Phone</th>
+                        <th>attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let emp of employeeArray; let i = index">
+                        <td>{{i}}</td>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.city | na}}</td>
+                        <td>{{emp.contact}}</td>
+                        <td>
+                            <app-progress-bar [progressValue]="emp.attendance"></app-progress-bar>
+
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row">
+        <h3>Pipes</h3>
+        <div class="col-3">
+            courseName = {{courseName}}
+            <br>
+            uppercase = {{courseName | uppercase}}
+        </div>
+        <div class="col-3">
+            courseName = {{courseName}}
+            <br>
+            lowecase = {{courseName | lowercase}}
+        </div>
+        <div class="col-3">
+            studenObj = {{studentObj}}
+            <br>
+            studentObj = {{studentObj | json}}
+        </div>
+        <div class="col-3">
+            employeeArray = {{employeeArray| json}}
+        </div>
+        <div class="col-3">
+            currenDate = {{currenDate}}
+            <br>
+            Date Only = {{currenDate | date}}
+            <br>
+            Date yyyy-MM-dd = {{currenDate | date: 'yyyy-MM-dd'}}
+            <br>
+            Date shortdate = {{currenDate | date: 'shortDate'}}
+            <br>
+            Date time = {{currenDate | date: 'hh:mm:ss'}}
+        </div>
+    </div>
+</div>
