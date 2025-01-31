@@ -14,6 +14,10 @@ export class TabsComponent {
 
   currentTab:string = '';
 
+  constructor(){
+    this.currentTab = this.tabList[0];
+  }
+
   onTableChange( tabname: string){
     this.currentTab = tabname;
     this.onTableClicked.emit(tabname);
